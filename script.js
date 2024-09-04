@@ -1,42 +1,21 @@
-const ENTRANTS = `
-01
-02
-03
-04
-05
-06
-07
-08
-09
-10
-11
-12
-13
-14
-15
-16
-17
-18
-19
-20
-21
-22
-23
-24
-25
-26
-27
-28
-29
-30
-31
-32`
-  .trim()
-  .split("\n");
+function generateEntrants(max) {
+  const entrants = [];
+  for (let i = 1; i <= max; i++) {
+    // Add leading zero if the number is less than 10
+    const entrant = i < 10 ? `0${i}` : `${i}`;
+    entrants.push(entrant);
+  }
+  return entrants;
+}
+const DEFAULT_MAX_NUMBER = 40;
+const maxNumber = !!localStorage.getItem('maxNumber') ? parseInt(localStorage.getItem('maxNumber')) : DEFAULT_MAX_NUMBER
+const ENTRANTS = generateEntrants(maxNumber);
 const rollEl = document.querySelector(".roll");
 const rollAgainEl = document.querySelector(".roll-again");
 const namesEl = document.querySelector(".names");
 const winnerEl = document.querySelector(".winner");
+console.log('Using localStorage.setItem(\'maxNumber\', newValue) and reload the page to reset the max number');
+console.log('Current \'maxNumber\':' + maxNumber);
 
 function randomName() {
   const rand = Math.floor(Math.random() * ENTRANTS.length);
