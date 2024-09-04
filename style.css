@@ -7,7 +7,7 @@ body {
   color: #fff;
   background-color: #253241;
   background-image: url(images/LuckyDraw.png);
-  background-size: cover;
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center center;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica,
